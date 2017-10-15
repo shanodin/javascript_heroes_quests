@@ -34,6 +34,49 @@ Hero.prototype = {
     }
   },
 
+  addQuest: function(quest) {
+    this.quests.push(quest);
+  },
+
+  sortQuestsByUrgency: function() {
+    this.quests.sort(function (quest1, quest2){
+      return quest1.urgency - quest2.urgency;
+    });
+  },
+
+  sortQuestsByDifficulty: function() {
+    this.quests.sort(function (quest1, quest2){
+      return quest1.difficulty - quest2.difficulty;
+    });
+  },
+
+  sortQuestsByReward: function() {
+    this.quests.sort(function (quest1, quest2){
+      return quest1.reward - quest2.reward;
+    });
+  },
+
+  listIncompleteQuests: function() {
+    var incompleteQuests = [];
+    for (quest of this.quests) {
+      if (quest.complete === false) {
+        incompleteQuests.push(quest);
+      };
+    };
+    return incompleteQuests;
+  },
+
+  listCompleteQuests: function() {
+    var completeQuests = [];
+    for (quest of this.quests) {
+      if (quest.complete === true) {
+        completeQuests.push(quest);
+      };
+    };
+    return completeQuests;
+  },
+
+
 };
 
 module.exports = Hero;

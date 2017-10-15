@@ -5,7 +5,7 @@ describe("Quest", function() {
   var quest1;
 
   beforeEach(function() {
-    quest1 = new Quest("Do the shopping", "easy", 3, 100)
+    quest1 = new Quest("Do the shopping", "easy", 3, 100);
   })
 
   it("should have a name", function() {
